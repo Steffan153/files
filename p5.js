@@ -72137,9 +72137,9 @@
              * </code>
              * </div>
              */
-            this.print = function(data) {
-              this.content += ''.concat(data, '\n');
-            };
+            // this.print = function(data) {
+            //   this.content += ''.concat(data, '\n');
+            // };
             /**
              * Clears the data already written to the PrintWriter object
              * @method clear
