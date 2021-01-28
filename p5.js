@@ -51693,10 +51693,14 @@
                           )
                         );
 
-                        globalObject[prop] = value;
+                        try {
+                          globalObject[prop] = value;
+                        } catch (_) {}
                       }
                     } else {
-                      globalObject[prop] = value;
+                      try {
+                        globalObject[prop] = value;
+                      } catch (_) {}
                     }
                   };
                 }
@@ -72137,9 +72141,9 @@
              * </code>
              * </div>
              */
-            // this.print = function(data) {
-            //   this.content += ''.concat(data, '\n');
-            // };
+            this.print = function(data) {
+              this.content += ''.concat(data, '\n');
+            };
             /**
              * Clears the data already written to the PrintWriter object
              * @method clear
