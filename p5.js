@@ -2552,19 +2552,6 @@
                 class: 'p5',
                 module: 'Constants'
               },
-              print: {
-                name: 'print',
-                params: [
-                  {
-                    name: 'contents',
-                    description:
-                      '<p>any combination of Number, String, Object, Boolean,\n                      Array to print</p>\n',
-                    type: 'Any'
-                  }
-                ],
-                class: 'p5',
-                module: 'Environment'
-              },
               frameCount: {
                 name: 'frameCount',
                 class: 'p5',
@@ -9650,11 +9637,6 @@
                 class: 'p5.TypedDict',
                 module: 'Data'
               },
-              print: {
-                name: 'print',
-                class: 'p5.TypedDict',
-                module: 'Data'
-              },
               saveTable: {
                 name: 'saveTable',
                 class: 'p5.TypedDict',
@@ -10469,18 +10451,6 @@
                   {
                     name: 'data',
                     description: '<p>all data to be written by the PrintWriter</p>\n',
-                    type: 'Array'
-                  }
-                ],
-                class: 'p5.PrintWriter',
-                module: 'IO'
-              },
-              print: {
-                name: 'print',
-                params: [
-                  {
-                    name: 'data',
-                    description: '<p>all data to be printed by the PrintWriter</p>\n',
                     type: 'Array'
                   }
                 ],
@@ -47289,39 +47259,6 @@
           var _windowPrint = window.print;
 
           /**
-           * The <a href="#/p5/print">print()</a> function writes to the console area of
-           * your browser. This function is often helpful for looking at the data a program
-           * is producing. This function creates a new line of text for each call to
-           * the function. Individual elements can be separated with quotes ("") and joined
-           * with the addition operator (+).
-           *
-           * Note that calling print() without any arguments invokes the window.print()
-           * function which opens the browser's print dialog. To print a blank line
-           * to console you can write print('\n').
-           *
-           * @method print
-           * @param {Any} contents any combination of Number, String, Object, Boolean,
-           *                       Array to print
-           * @example
-           * <div><code class='norender'>
-           * let x = 10;
-           * print('The value of x is ' + x);
-           * // prints "The value of x is 10"
-           * </code></div>
-           *
-           * @alt
-           * default grey canvas
-           */
-          _main.default.prototype.print = function() {
-            if (!arguments.length) {
-              _windowPrint();
-            } else {
-              var _console;
-              (_console = console).log.apply(_console, arguments);
-            }
-          };
-
-          /**
            * The system variable <a href="#/p5/frameCount">frameCount</a> contains the
            * number of frames that have been displayed since the program started. Inside
            * <a href="#/p5/setup">setup()</a> the value is 0, after the first iteration
@@ -60087,30 +60024,6 @@
               delete this.data[key];
             } else {
               throw new Error(''.concat(key, ' does not exist in this Dictionary'));
-            }
-          };
-
-          /**
-           * Logs the set of items currently stored in the Dictionary to the console.
-           *
-           * @method print
-           *
-           * @example
-           * <div class="norender">
-           * <code>
-           * function setup() {
-           *   let myDictionary = createStringDict('p5', 'js');
-           *   myDictionary.create('happy', 'coding');
-           *   myDictionary.print();
-           *   // above logs "key: p5 - value: js, key: happy - value: coding" to console
-           * }
-           * </code>
-           * </div>
-           */
-
-          _main.default.TypedDict.prototype.print = function() {
-            for (var item in this.data) {
-              console.log('key:'.concat(item, ' value:').concat(this.data[item]));
             }
           };
 
